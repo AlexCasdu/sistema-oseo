@@ -117,7 +117,7 @@ const VALORES_HUESOS = {
     'Huesos coxales': 2,
     'Fémur': 2, 'Rótula': 2,
     'Tibia': 2, 'Peroné o fíbula': 2,
-    'Calcáneo': 2, 'Astrágalo': 2, 'Navicular': 2,
+    'Calcáneo': 2, 'Talus (Astrágalo)': 2, 'Navicular': 2,
     'Cuneiforme medial': 2, 'Cuneiforme intermedio': 2, 'Cuneiforme lateral': 2,
     'Cuboide': 2, 'Metatarsianos': 10,
 };
