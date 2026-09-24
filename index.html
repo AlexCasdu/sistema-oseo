@@ -1,0 +1,492 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Óseo Humano - Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="contadorTotal" class="contador-total">Cantidad Total = <span id="totalValue" class="total-num">0</span>
+        </div>
+        <!-- Pantalla inicial -->
+        <div id="welcomeScreen" class="welcome-screen">
+            <h1 class="welcome-title">SISTEMA ÓSEO</h1>
+
+            <img id="skeletonImage" src="https://definicion.de/wp-content/uploads/2014/09/sistema-oseo.png"
+                alt="Esqueleto humano completo visto de frente con todas las regiones óseas principales"
+                class="main-skeleton-image fade-in-up">
+
+            <div class="main-buttons fade-in-up delay-1">
+                <button class="region-btn" onmouseenter="changeImage('cabeza')" onmouseleave="resetImage()"
+                    onclick="showRegion('cabeza')">Cabeza</button>
+                <button class="region-btn" onmouseenter="changeImage('tronco')" onmouseleave="resetImage()"
+                    onclick="showRegion('tronco')">Tronco</button>
+                <button class="region-btn" onmouseenter="changeImage('superiores')" onmouseleave="resetImage()"
+                    onclick="showRegion('superiores')">Miembros superiores</button>
+                <button class="region-btn" onmouseenter="changeImage('inferiores')" onmouseleave="resetImage()"
+                    onclick="showRegion('inferiores')">Miembros inferiores</button>
+            </div>
+        </div>
+
+        <!-- Región: Cabeza -->
+        <div id="cabeza" class="content-view">
+            <button class="back-btn" onclick="goHome()">← Volver al inicio</button>
+            <h2 class="view-title">Cabeza</h2>
+
+            <img src="https://www.kenhub.com/thumbor/X4YzMKEw-rjBwVi--wS98SLiwsk=/fit-in/1400x0/filters:fill(FFFFFF,true):watermark(/images/watermark_5000_10percent.png,0,0,0):watermark(/images/logo_url.png,-10,-10,0):format(jpeg)/images/overview_image/1180/SX1ihZjeuGCokL5lBPySqg_main-bones-of-the-head_es.jpg"
+                alt="Cráneo humano completo mostrando vista frontal de la cabeza ósea" class="bone-image fade-in-up">
+
+            <div class="subregions-container fade-in-up delay-1">
+                <button class="subregion-btn" onclick="showSubregion('craneo')">Cráneo</button>
+                <button class="subregion-btn" onclick="showSubregion('cara')">Cara</button>
+                <button class="subregion-btn" onclick="showSubregion('oido')">Oído</button>
+                <button class="subregion-btn" onclick="showSubregion('cuello')">Cuello</button>
+            </div>
+
+            <div class="bone-count">
+                <div class="bone-count-title">Conteo de huesos: Cabeza</div>
+                <div class="count-item">
+                    <div class="count-number">29</div>
+                    <div class="count-label">huesos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subregión: Cráneo -->
+        <div id="craneo" class="content-view">
+            <button class="back-btn" onclick="showRegion('cabeza')">← Regresar a Cabeza</button>
+            <h2 class="view-title">Cráneo</h2>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6JJZcSzFQzZOROeZ-bjdJzDYX7XPekG6hfaow-NcDNA&s=10"
+                alt="Huesos del cráneo con etiquetas: frontal, parietales, temporales, occipital, esfenoides y etmoides"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsLbNvFJDZg2GUrC6bpuMHP378Rn27wgi-XkieYcdK9Q&s=10">Frontal</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ31IFl6WMAsUqm6DWEMwRm03fIVRszWSVMQ2oMRzj3NA&s=10">Parietales</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtVFuNp6oOyz5qkcqqhDqzFMWrK5rNU2QbjWl8PgmXxQ&s=10">Temporales</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcxBZ7xlHntFdPBPbI6I0_2tSzk61wdMch9uPOqBQVaQ&s=10">Occipital</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpfwObI0-XoeUEbrc-It1p8SJ_-NXQf4tOS3Phi6FpCg&s=10">Esfenoides</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/22OwDoZfSzhgQOGMLcNI-TZGBBk=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/ethmoid-bone-4/45SbsVLRhUfFP6xU6oyJA_Os_ethmoidale_02.png">Etmoides</span>
+            </div>
+        </div>
+
+        <!-- Subregión: Cara -->
+        <div id="cara" class="content-view">
+            <button class="back-btn" onclick="showRegion('cabeza')">← Regresar a Cabeza</button>
+            <h2 class="view-title">Cara</h2>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnSZNmwZVHAxDMBeqRUlbOoHAEUwL_2txdmjcHeIobrA&s=10"
+                alt="Huesos de la cara: maxilares, cigomáticos, nasales, lagrimales, palatinos, cornetes, vómer y mandíbula"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6t63p-F9preCF0UimsvsdI_VfeEyXLU6QQ87UIPnCuA&s=10">Maxilares</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkq6o2WT7JejK5luG5yYYOTda3dc5l13R0t-8kS7DHvA&s=10">Cigomáticos</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStG01C2skzEUYqZ55w4dUO2wzNczGROZwXcXk_Lm4FCw&s=10">Nasales</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/MghokzRWzn1mZrN8gBQyqUkTJp0=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/processus-frontalis-maxilla/RTrzE9Qji5geLMP3sIJQ_Frontal_process_-_Maxilla_01.png">Lagrimales</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/N0Lccr_kbrCIwKERtWYOV3Vzp7g=/fit-in/800x1600/filters:watermark(/images/logo_url.png,-10,-10,0):background_color(FFFFFF):format(jpeg)/images/article/the-palatine-bone/okDjBcEgUtYM4FLLwfVk9A_os_palatinum_2_atlas_ckWoaG39xMrn13UiuUqOWg.png">Palatinos</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/eQbUIoMb9mCYg51k6lQoBG_TOtc=/fit-in/800x1600/filters:watermark(/images/logo_url.png,-10,-10,0):background_color(FFFFFF):format(jpeg)/images/article/inferior-nasal-concha/oYRjK7hPSiwkUGjF2gpRg_Inferior_nasal_concha.png">Cornetes
+                    nasales inferiores</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/6unFiukNj_y3Dc03GDjr8bvSHBA=/fit-in/800x1600/filters:watermark(/images/logo_url.png,-10,-10,0):background_color(FFFFFF):format(jpeg)/images/article/the-vomer/v56RxH9lpvFJXw9P0Bzw_vomer_2_atlas_Xwn6Q6WYFaX2Ox9zHu8HNg.png">Vómer</span>
+                <span class="bone-name"
+                    data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd2gx1hVhSImxbdWbE4VeCVbFbcpcByUqmRt_19uL9Fw&s=10">Mandíbula</span>
+            </div>
+        </div>
+
+        <!-- Subregión: Oído -->
+        <div id="oido" class="content-view">
+            <button class="back-btn" onclick="showRegion('cabeza')">← Regresar a Cabeza</button>
+            <h2 class="view-title">Oído</h2>
+
+            <img src="https://www.kenhub.com/thumbor/-Z1ZpavVtxyzPoR-FQHmpEzJIhA=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/tensor-tympani-muscle/aZe0wdrJJ0OBGeo6D9QpMw_Tensor_tympani_muscle.png"
+                alt="Huesos del cráneo con etiquetas: frontal, parietales, temporales, occipital, esfenoides y etmoides"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/cHmYF8qEaH_rXaxdxoCvKu4ndVs=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/malleus/tdtWMUzIPd2EwCq09V9Aw_Malleus_01.png">Martillo</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/T6iMuDphAoUaCldztm_SKbD1f2k=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/body-of-incus/ir6CDjCoxzYa5YgobhIw_Body_of_incus.png">Yunque</span>
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/GttTp35u9KZhsUcTxSSMqa5CqA8=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/crura-stapedis/Rp1Pd4NIz85kAbZCW010A_Limbs_of_stapes_magnified.jpg">Estribo</span>
+            </div>
+        </div>
+
+
+        <!-- Subregión: Cuello -->
+        <div id="cuello" class="content-view">
+            <button class="back-btn" onclick="showRegion('cabeza')">← Regresar a Cabeza</button>
+            <h2 class="view-title">Cuello</h2>
+
+            <img src="https://www.kenhub.com/thumbor/LhCwlvmHRSv62c4GEGm4APeNS54=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/body-of-hyoid-1/Op6QJIqWZEpkgEd5FcAfQ_body_of_hyoid.png"
+                alt="Vértebras cervicales y hueso hioides en vista lateral del cuello" class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name"
+                    data-img="https://www.kenhub.com/thumbor/LhCwlvmHRSv62c4GEGm4APeNS54=/fit-in/413x413/filters:fill(FFFFFF,true):watermark(/images/watermark_only_413.png,0,0,0):watermark(/logos/logo_url_sm.png,-10,-10,0):format(jpeg)/images/learnable/body-of-hyoid-1/Op6QJIqWZEpkgEd5FcAfQ_body_of_hyoid.png">Hioides</span>
+            </div>
+        </div>
+
+        <!-- Región: Tronco -->
+        <div id="tronco" class="content-view">
+            <button class="back-btn" onclick="goHome()">← Volver al inicio</button>
+            <h2 class="view-title">Tronco</h2>
+
+            <img src="https://images.imagerenderer.com/images-medium-large/torso-bones-sheila-terry.jpg"
+                alt="Columna vertebral completa con regiones diferenciadas por colores: cervical, torácica, lumbar, sacro y cóccix"
+                class="bone-image fade-in-up">
+
+            <div class="subregions-container fade-in-up delay-1">
+                <button class="subregion-btn" onclick="showSubregion('cintura-escapular')">Cintura
+                    escapular</button>
+                <button class="subregion-btn" onclick="showSubregion('columna')">Columna vertebral</button>
+                <button class="subregion-btn" onclick="showSubregion('caja-toracica')">Caja torácica</button>
+                <button class="subregion-btn" onclick="showSubregion('pelvis')">Pelvis</button>
+            </div>
+
+            <div class="bone-count">
+                <div class="bone-count-title">Conteo de huesos: Tronco</div>
+                <div class="count-item">
+                    <div class="count-number">57</div>
+                    <div class="count-label">huesos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subregión: Cintura escapular -->
+        <div id="cintura-escapular" class="content-view">
+            <button class="back-btn" onclick="showRegion('tronco')">← Regresar a Tronco</button>
+            <h2 class="view-title">Cintura escapular</h2>
+
+            <img src="https://storage.googleapis.com/dev_wiki_voka_io_303011/quizzes/anatomy/regional/pectoral-girdle-bones.webp"
+                alt="Cintura escapular mostrando clavícula y escápula (omóplato) en vista anterior"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Clavícula</span>
+                <span class="bone-name" data-img="doomie.png">Escápula u omóplato</span>
+            </div>
+        </div>
+
+        <!-- Subregión: Columna vertebral -->
+        <div id="columna" class="content-view">
+            <button class="back-btn" onclick="showRegion('tronco')">← Regresar a Tronco</button>
+            <h2 class="view-title">Columna vertebral</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/2f54e673-c1f7-584f-ac1f-d50ca02da912/d87d3a22-eb69-56e5-9109-f7b6e1912d1e.jpg"
+                alt="Columna vertebral completa mostrando vértebras cervicales, torácicas, lumbares, sacro y cóccix"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name"
+                    data-img="https://storage.googleapis.com/dev_wiki_voka_io_303011/quizzes/anatomy/regional/cervical-vertebrae.webp">Vértebras
+                    cervicales</span>
+                <span class="bone-name" data-img="doomie.png">Vértebras torácicas</span>
+                <span class="bone-name" data-img="doomie.png">Vértebras lumbares</span>
+                <span class="bone-name" data-img="doomie.png">Sacro</span>
+                <span class="bone-name" data-img="doomie.png">Cóccix</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                La columna vertebral tiene 33 vértebras en total: 7 cervicales, 12 torácicas, 5 lumbares, 5 sacras
+                fusionadas y 4 coccígeas fusionadas.
+            </p>
+
+            <p class="image-credit">Fuente: Spine Health - Spine Anatomy</p> -->
+        </div>
+
+        <!-- Subregión: Caja torácica -->
+        <div id="caja-toracica" class="content-view">
+            <button class="back-btn" onclick="showRegion('tronco')">← Regresar a Tronco</button>
+            <h2 class="view-title">Caja torácica</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/e6a86413-9a74-52e8-a9ed-c137204643d4/0af98422-8d5d-5204-9f00-361f34eddb23.jpg"
+                alt="Caja torácica mostrando esternón, costillas verdaderas (1-7), falsas (8-10) y flotantes (11-12)"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Esternón</span>
+                <span class="bone-name" data-img="doomie.png">Costillas verdaderas</span>
+                <span class="bone-name" data-img="doomie.png">Costillas falsas</span>
+                <span class="bone-name" data-img="doomie.png">Costillas flotantes</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                La caja torácica protege el corazón y pulmones. Tiene 12 pares de costillas: 7 verdaderas, 3 falsas y 2
+                flotantes, más el esternón.
+            </p>
+
+            <p class="image-credit">Fuente: Educational Anatomy Diagrams</p> -->
+        </div>
+
+        <!-- Subregión: Pelvis -->
+        <div id="pelvis" class="content-view">
+            <button class="back-btn" onclick="showRegion('tronco')">← Regresar a Tronco</button>
+            <h2 class="view-title">Pelvis</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/0bcd5331-232e-5a0a-a243-989200e0fff0/34af2a2f-2fcf-530f-8faa-5870a8e5c7b4.jpg"
+                alt="Pelvis ósea mostrando huesos coxales (ilion, isquion, pubis) y sacro"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Huesos coxales</span>
+                <!-- <span class="bone-name" data-img="doomie.png">Sacro</span> -->
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                La pelvis está formada por 2 huesos coxales (cada uno fusionado de ilion, isquion y pubis) y el sacro.
+                Total: 3 huesos principales.
+            </p>
+
+            <p class="image-credit">Fuente: Get Body Smart - Hip Bone Anatomy</p> -->
+        </div>
+
+        <!-- Región: Miembros superiores -->
+        <div id="superiores" class="content-view">
+            <button class="back-btn" onclick="goHome()">← Volver al inicio</button>
+            <h2 class="view-title">Miembros superiores</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/cac4178b-ed1e-558d-9c79-980321093bf0/e5158334-19f7-5f83-b397-47ea7f0d0925.jpg"
+                alt="Miembros superiores completos mostrando húmero, radio, cúbito, carpo, metacarpo y falanges"
+                class="bone-image fade-in-up">
+
+            <div class="subregions-container fade-in-up delay-1">
+                <button class="subregion-btn" onclick="showSubregion('brazo')">Brazo</button>
+                <button class="subregion-btn" onclick="showSubregion('antebrazo')">Antebrazo</button>
+                <button class="subregion-btn" onclick="showSubregion('mano')">Mano</button>
+            </div>
+
+            <div class="bone-count">
+                <div class="bone-count-title">Conteo de huesos: Miembros superiores</div>
+                <div class="count-item">
+                    <div class="count-number">60</div>
+                    <div class="count-label">huesos (30 por brazo)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subregión: Brazo -->
+        <div id="brazo" class="content-view">
+            <button class="back-btn" onclick="showRegion('superiores')">← Regresar a Miembros superiores</button>
+            <h2 class="view-title">Brazo</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/bf66a650-daa2-5bc9-98ff-a61e891a9dd0/0af98422-8d5d-5204-9f00-361f34eddb23.jpg"
+                alt="Húmero aislado mostrando todas sus partes: cabeza, cuello, tubérculos, epicóndilos"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Húmero</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                El húmero es el hueso más largo del brazo, se extiende desde el hombro hasta el codo. Hay 2 húmeros en
+                total.
+            </p>
+
+            <p class="image-credit">Fuente: Educational Anatomy - Humerus</p> -->
+        </div>
+
+        <!-- Subregión: Antebrazo -->
+        <div id="antebrazo" class="content-view">
+            <button class="back-btn" onclick="showRegion('superiores')">← Regresar a Miembros superiores</button>
+            <h2 class="view-title">Antebrazo</h2>
+
+            <img src="https://st.perplexity.ai/estatic/0b226c450798410ac541646c86ec31afd840e5beab817a5d84fa821e7db61981ec84c3b4a3f072a7a2e1899c9fb06c6ebe5f45d9f9acbad9c306d0145e7b0868ab5ee6cb5287ba29ba5057c3c33e484c8e4e5a9b8a498e8826e1e552d3f9706a6e919fc2d38b986961332a56a86badb2"
+                alt="Radio y cúbito (ulna) del antebrazo en vista anterior y lateral" class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Radio</span>
+                <span class="bone-name" data-img="doomie.png">Cúbito o ulna</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                El antebrazo tiene dos huesos: el radio (lado del pulgar) y el cúbito o ulna (lado del meñique). Total:
+                4 huesos.
+            </p>
+
+            <p class="image-credit">Fuente: Quizlet - Arm Bones Diagram</p> -->
+        </div>
+
+        <!-- Subregión: Mano -->
+        <div id="mano" class="content-view">
+            <button class="back-btn" onclick="showRegion('superiores')">← Regresar a Miembros superiores</button>
+            <h2 class="view-title">Mano</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/fd4a4913-c0a0-5df9-9e21-9005539840b0/6e3c5f58-7b1c-5a41-ac47-1fce16eadc4c.jpg"
+                alt="Huesos de la mano mostrando metacarpianos y falanges en vista dorsal"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Escafoides</span>
+                <span class="bone-name" data-img="doomie.png">Semilunar</span>
+                <span class="bone-name" data-img="doomie.png">Piramidal</span>
+                <span class="bone-name" data-img="doomie.png">Pisiforme</span>
+                <span class="bone-name" data-img="doomie.png">Trapecio</span>
+                <span class="bone-name" data-img="doomie.png">Trapezoide</span>
+                <span class="bone-name" data-img="doomie.png">Grande</span>
+                <span class="bone-name" data-img="doomie.png">Ganchoso</span>
+                <span class="bone-name" data-img="doomie.png">Metacarpianos</span>
+                <span class="bone-name" data-img="doomie.png">Falanges</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                Cada mano tiene 5 metacarpianos y 14 falanges (3 por dedo excepto el pulgar que tiene 2). Total por
+                mano: 19 huesos. Ambos manos: 38 huesos.
+            </p>
+
+            <p class="image-credit">Fuente: Anatomy.app - Bones of Hand</p> -->
+        </div>
+
+        <!-- Región: Miembros inferiores -->
+        <div id="inferiores" class="content-view">
+            <button class="back-btn" onclick="goHome()">← Volver al inicio</button>
+            <h2 class="view-title">Miembros inferiores</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/61c99e2e-9e67-53fd-990c-75bfbadd806c/845e9c54-d058-5587-85b0-486e4c1574fb.jpg"
+                alt="Miembros inferiores completos mostrando pelvis, fémur, rótula, tibia, peroné, tarsos, metatarsos y falanges"
+                class="bone-image fade-in-up">
+
+            <div class="subregions-container fade-in-up delay-1">
+                <button class="subregion-btn" onclick="showSubregion('muslo')">Muslo</button>
+                <button class="subregion-btn" onclick="showSubregion('rodilla')">Rodilla</button>
+                <button class="subregion-btn" onclick="showSubregion('pierna')">Pierna</button>
+                <button class="subregion-btn" onclick="showSubregion('pie')">Pie</button>
+            </div>
+
+            <div class="bone-count">
+                <div class="bone-count-title">Conteo de huesos: Miembros inferiores</div>
+                <div class="count-item">
+                    <div class="count-number">60</div>
+                    <div class="count-label">huesos (30 por pierna)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subregión: Muslo -->
+        <div id="muslo" class="content-view">
+            <button class="back-btn" onclick="showRegion('inferiores')">← Regresar a Miembros inferiores</button>
+            <h2 class="view-title">Muslo</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7ee59f7e-446e-5732-9f87-a047412a57bd/d8f0915f-5cbc-5a8b-b62e-ef23fc9a0281.jpg"
+                alt="Fémur completo desde la cadera hasta la rodilla mostrando cabeza, trocánteres, cóndilos"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Fémur</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                El fémur es el hueso más largo y fuerte del cuerpo. Se extiende desde la cadera hasta la rodilla. Hay 2
+                fémures en total.
+            </p>
+
+            <p class="image-credit">Fuente: Lumen Learning - Lower Limb Bones</p> -->
+        </div>
+
+        <!-- Subregión: Rodilla -->
+        <div id="rodilla" class="content-view">
+            <button class="back-btn" onclick="showRegion('inferiores')">← Regresar a Miembros inferiores</button>
+            <h2 class="view-title">Rodilla</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/3f9e0936-4585-5241-beaa-cc3cbeb6e646/891ff735-5810-5b35-af3c-fa1eead59a36.jpg"
+                alt="Articulación de la rodilla mostrando rótula (patela) en vista anterior"
+                class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Rótula</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                La rótula o patela es un hueso sesamoideo triangular que protege la articulación de la rodilla. Hay 2
+                rótulas en total.
+            </p>
+
+            <p class="image-credit">Fuente: AB Posters - Leg Joints Anatomy</p> -->
+        </div>
+
+        <!-- Subregión: Pierna -->
+        <div id="pierna" class="content-view">
+            <button class="back-btn" onclick="showRegion('inferiores')">← Regresar a Miembros inferiores</button>
+            <h2 class="view-title">Pierna</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7bbe44aa-f43d-59f9-8c47-c51f44a0c993/e91e73d4-022b-59db-9713-717a2a198855.jpg"
+                alt="Tibia y peroné (fíbula) de la pierna en vista anterior y lateral" class="bone-image fade-in-up">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Tibia</span>
+                <span class="bone-name" data-img="doomie.png">Peroné o fíbula</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                La pierna tiene dos huesos: la tibia (hueso principal de soporte) y el peroné o fíbula (hueso lateral
+                más delgado). Total: 4 huesos.
+            </p>
+
+            <p class="image-credit">Fuente: Britannica - Tibia and Fibula</p> -->
+        </div>
+
+        <!-- Subregión: Pie -->
+        <div id="pie" class="content-view">
+            <button class="back-btn" onclick="showRegion('inferiores')">← Regresar a Miembros inferiores</button>
+            <h2 class="view-title">Pie</h2>
+
+            <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/18c4c7e2-8f9a-5d3b-b2e1-4c5a6d7e8f9a/6e3c5f58-7b1c-5a41-ac47-1fce16eadc4c.jpg"
+                alt="Huesos del pie mostrando tarsos (calcáneo, astrágalo, navicular, cuneiforme medial, cuneiforme intermedio, cuneiforme lateral y cuboide), metatarsianos y falanges en vista dorsal"
+                class="bone-image fade-in-up"
+                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iIzBhMGUxYSIvPjx0ZXh0IHg9IjI1MCIgeT0iMjAwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiMwMGQ0ZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkltYWdlbiBkZSByZXNwYWxkbzogSHVlc29zIGRlbCBwaWU8L3RleHQ+PC9zdmc+'">
+
+            <div class="bone-names fade-in-up delay-1">
+                <span class="bone-name" data-img="doomie.png">Calcáneo</span>
+                <span class="bone-name" data-img="doomie.png">Astrágalo</span>
+                <span class="bone-name" data-img="doomie.png">Navicular</span>
+                <span class="bone-name" data-img="doomie.png">Cuneiforme medial</span>
+                <span class="bone-name" data-img="doomie.png">Cuneiforme intermedio</span>
+                <span class="bone-name" data-img="doomie.png">Cuneiforme lateral</span>
+                <span class="bone-name" data-img="doomie.png">Cuboide</span>
+                <span class="bone-name" data-img="doomie.png">Metatarsianos</span>
+                <span class="bone-name" data-img="doomie.png">Falanges</span>
+            </div>
+
+            <!-- <p class="bone-description fade-in-up delay-2">
+                El pie tiene 7 tarsos: calcáneo, astrágalo, navicular, cuneiforme medial, cuneiforme intermedio,
+                cuneiforme lateral y cuboide. También tiene 5 metatarsianos y 14 falanges por pie. Total por pie: 26
+                huesos. Ambos pies: 52 huesos.
+            </p>
+
+            <p class="image-credit">Fuente: Anatomy.app - Foot Bones</p> -->
+        </div>
+
+        <!-- Conteo final -->
+        <!-- <div id="conteoFinal" class="content-view">
+            <button class="back-btn" onclick="goHome()">← Volver al inicio</button>
+            <h2 class="view-title">Total de huesos</h2>
+
+            <div class="bone-count">
+                <div class="total-count" style="font-size: 2.5rem; border: none; padding-top: 0;">
+                    29 + 51 + 64 + 62 = 206 HUESOS
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
